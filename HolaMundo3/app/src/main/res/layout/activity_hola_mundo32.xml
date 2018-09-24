@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HolaMundo32"
+    android:orientation="vertical"
+
+    >
+
+
+    <TextView
+        android:id="@+id/miLbl"
+        android:layout_width="314dp"
+        android:layout_height="88dp"
+        android:text="SALUDOS JEJE" />
+
+    <ImageButton
+        android:id="@+id/miImg"
+        android:layout_width="297dp"
+        android:layout_height="320dp"
+        android:adjustViewBounds="false"
+        android:cropToPadding="false"
+        android:src="@drawable/img" />
+</LinearLayout>
