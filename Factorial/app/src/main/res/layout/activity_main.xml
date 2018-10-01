@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+
+    >
+
+    <EditText
+        android:id="@+id/miTxt"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="INTRODUCE AQUÍ EL NÚMERO"
+        android:textAlignment="center"
+        />
+
+    <Button
+        android:id="@+id/miBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CALCULAR" />
+
+    <TextView
+        android:id="@+id/miLbl"
+        android:layout_width="match_parent"
+        android:layout_height="206dp"
+        android:text="EL RESULTADO"
+        android:textSize="100px"
+        android:textAlignment="center"
+        />
+
+</LinearLayout>
