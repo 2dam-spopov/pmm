@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:id="@+id/imagen"
+            android:src="@drawable/reciclado"
+            android:layout_width="match_parent"
+            android:layout_height="200px" />
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Elige contenedor:"/>
+    <RadioGroup
+        android:id="@+id/contenedores"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/contenedorAzul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contenedor Azul"/>
+        <RadioButton
+            android:id="@+id/contenedorAmarillo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contenedor Amarillo"/>
+        <RadioButton
+            android:id="@+id/contenedorVerde"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contenedor Verde"/>
+        <RadioButton
+            android:id="@+id/contenedorMarron"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contenedor Marrón"/>
+    </RadioGroup>
+    <TextView
+        android:text="¿Qué desea hacer?:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <CheckBox
+            android:id="@+id/vender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vender basura"/>
+        <CheckBox
+            android:id="@+id/donar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Donar basura"/>
+        <CheckBox
+            android:id="@+id/nada"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nada"/>
+    </LinearLayout>
+    <EditText
+        android:id="@+id/peso"
+        android:hint="Introduzca el peso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+
+        android:id="@+id/calcular"
+        android:text="Calcular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/resultado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>
