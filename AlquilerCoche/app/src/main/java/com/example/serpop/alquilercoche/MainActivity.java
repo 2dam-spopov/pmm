@@ -2,6 +2,7 @@ package com.example.serpop.alquilercoche;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
@@ -67,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
         final EditText horas = (EditText) findViewById(R.id.horas);
         final Object texto = spinner.getSelectedItem();
         calcular.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 boolean flag = false;
@@ -113,6 +115,11 @@ public class MainActivity extends AppCompatActivity {
                 resultado.setText(coche[indice].toString());
             }
         });
+
+
+
+
+
     }
     class AdaptadorCoches extends ArrayAdapter{
         Activity context;
@@ -149,18 +156,18 @@ public class MainActivity extends AppCompatActivity {
         inflater.inflate(R.menu.menu_principal,menu);
         return true;
     }
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo){
-        super.onCreateContextMenu(menu,v,menuInfo);
-        MenuInflater inflater=getMenuInflater();
-        inflater.inflate(R.menu.contextual_menu,menu);
-
-        findViewById(R.id.CtxOpc1).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Main4Activity.class);
+    public boolean onOptionsItemSelected(MenuItem item){
+        String mensaje="";
+        switch (item.getItemId()){
+            case R.id.MnuOpc1:
+                Intent intent = new Intent(MainActivity.this,Main4Activity.class);
                 startActivity(intent);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
             }
-        });
+
 
 
     }

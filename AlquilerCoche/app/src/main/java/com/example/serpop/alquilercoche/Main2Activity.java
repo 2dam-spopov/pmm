@@ -2,6 +2,7 @@ package com.example.serpop.alquilercoche;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
@@ -67,8 +68,13 @@ public class Main2Activity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Main2Activity.this, MainActivity.class);
                 startActivity(intent);
+                MediaPlayer miMusica=MediaPlayer.create(getApplicationContext(), R.raw.efecto);
+                miMusica.start();
             }
         });
+
+
+
     }
 
 }
