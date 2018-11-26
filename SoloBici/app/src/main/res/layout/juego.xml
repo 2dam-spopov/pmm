@@ -3,12 +3,12 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
     <juego.solobici.VistaJuego
         android:id="@+id/VistaJuego"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:focusable="true"
-        android:background="@drawable/fondo" />
+        android:background="#9966cc" />
 </LinearLayout>
