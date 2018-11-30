@@ -5,7 +5,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
-    <juego.solobici.VistaJuego
+    <view
+        class="com.example.serpop.solobici.VistaJuego"
         android:id="@+id/VistaJuego"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

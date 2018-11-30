@@ -21,8 +21,8 @@ public class VistaJuego extends View {
 
     //BICI
     private Grafico bici;
-    private int gitoBici; //Incremento dirección de la bici
-    private float aceletacionBici; //Aumento de velocidad de la bici
+    private int giroBici; //Incremento dirección de la bici
+    private float aceleracionBici; //Aumento de velocidad de la bici
     private static final int PASO_GIRO_BICI = 5;
     private static final float PASO_ACELERACION_BICI = 0.5f;
 
@@ -30,7 +30,13 @@ public class VistaJuego extends View {
     //Hilo encargado de procesar el tiempo
     private HiloJuego hiloJuego;
     //Tiempo que debe transcurrir para procesar cambios (ms)
-    private static int PERIODO_PROCES = 50;
+    private static int PERIODO_PROCESO = 50;
+
+    private static int MAX_VELOCIDAD = 20;
+
+
+
+
     //Momento en el que se realiza el último proceso
     private long ultimoProceso = 0;
 
@@ -39,7 +45,7 @@ public class VistaJuego extends View {
         super(contexto, atributos);
         Drawable graficoBici, graficoCoche, graficoRueda;
         //Obtenemos la imagen del coche
-        graficoCoche = contexto.getResources().getDrawable(android.R.drawable.coche);
+        graficoCoche = contexto.getResources().getDrawable(R.drawable.coche);
 
         //Creamos un vector para contener todos los coches que se ven en la pantalla
         //y lo rellenamos con graficos de coches
@@ -55,7 +61,7 @@ public class VistaJuego extends View {
         }
 
         //BICI
-        graficoBici = contexto.getResources().getDrawable(R, drawable.bici);
+        graficoBici = contexto.getResources().getDrawable(R.drawable.bici);
         bici = new Grafico(this, graficoBici);
     }
 
@@ -74,8 +80,40 @@ public class VistaJuego extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         //Dibujamos cada uno de los coches
-        for (Grafico cohce : Coches) {
+        for (Grafico coche : Coches) {
             coche.dibujaGrafico(canvas);
+        }
+    }
+
+    protected synchronized void actualizaMovimiento(){
+        long ahora = System.currentTimeMillis();
+        //No hacemos nada si el período de proceso no se ha cumplido.
+        if(ultimoProceso+PERIODO_PROCESO>ahora){
+            return;
+        }
+        //Para una ejecución en tiempo real calculamos retardo.
+        double retardo = (ahora - ultimoProceso)/ PERIODO_PROCESO;
+        //Actualizamos la posición de la bici.
+
+        bici.setAngulo((int)(bici.getAngulo()+giroBici*retardo));
+        double nIncX=bici.getIncX()+aceleracionBici * Math.cos(Math.toRadians(bici.getAngulo()))*retardo;
+        double nIncY=bici.getIncY()+aceleracionBici * Math.cos(Math.toRadians(bici.getAngulo()))*retardo;
+        if(Grafico.distanciaE(0,0,nIncX,nIncY)<= MAX_VELOCIDAD){
+            bici.setIncX(nIncX);
+            bici.setIncY(nIncY);
+        }
+        bici.incrementaPos();
+        //Movemos los coches
+        for(Grafico coche : Coches){
+            coche.incrementaPos();
+        }
+        ultimoProceso = ahora;
+    }
+    private class HiloJuego extends Thread{
+        public void run(){
+            while(true){
+                actualizaMovimiento();
+            }
         }
     }
 

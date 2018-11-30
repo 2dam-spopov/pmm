@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class Grafico extends AppCompatActivity {
+public class Grafico  {
 
     private Drawable drawable; //Imagen que se dibuja
     private double posX, posY; //Posición en la pantalla
@@ -14,6 +14,7 @@ public class Grafico extends AppCompatActivity {
     private int angulo, rotacion; //
     private int ancho, alto; //Dimensiones de la imagen
     private int radioColision; //Determinar si chocamos
+
 
     //CONSTRUCTOR
     public Grafico(Drawable drawable, double posX, double posY, double incX, double incY, int angulo, int rotacion, int ancho, int alto, int radioColision) {
@@ -111,6 +112,9 @@ public class Grafico extends AppCompatActivity {
         this.radioColision = radioColision;
     }
 
+
+
+
     //TOSTRING
     @Override
     public String toString() {
@@ -187,7 +191,7 @@ public class Grafico extends AppCompatActivity {
     public boolean verificaColision(Grafico g){
         return (distancia(g)<(radioColision+g.radioColision));
     }
-    public static double sitanciaE(double x, double y, double x2, double y2){
+    public static double distanciaE(double x, double y, double x2, double y2){
         return Math.sqrt((x-x2)*(x-x2)+(y-y2)*(y-y2));
     }
 }

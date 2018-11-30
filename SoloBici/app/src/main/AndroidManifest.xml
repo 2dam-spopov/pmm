@@ -18,8 +18,6 @@
         </activity>
         <activity android:name=".AcercaDe" />
         <activity android:name=".Juego" />
-        <activity android:name=".Grafico" />
-        <activity android:name=".VistaJuego"></activity>
-    </application>
+             </application>
 
 </manifest>
